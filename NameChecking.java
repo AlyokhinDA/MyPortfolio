@@ -13,39 +13,34 @@ public class NameChecking {
 
    private static boolean checkName(String name) {
        boolean check = false;
-       if (name.trim().split(",").length != 3) {
+       if (name.trim().split(" ").length != 3) {
            check = false;
        } else check = true;
 
        formatName(name);
-       String[] words = new String[name.trim().split(",")];
+       String[] words = new String[name.trim().split(" ")];
        sortByLength(words);
 
        return check;
    }
 
    private static String formatName(String name) {
-       String str;
+/*       String str;
        Scanner s = new Scanner(name);
        str = s.charAt(0).toUpperCase();
        str = s.charAt(0).toUpperCase();
        str = s.charAt(0).toUpperCase();
 
        return name;
+*/
    }
 
    private static void sortByLength(String[] words) {
-       if (words[0] < words[1]) {
-           words[0] = words[1];
-           words[1] = words[0];
-
-           if (words[1] < words[2]) {
-               words[1] = words[2];
-               words[2] = words[1];
-           } else {
-               words[2] = words[0];
-               words[0] = words[2];
-           }
-       }
+        for (String s; s < words.length; s++) {
+            if (words[s] < words[s + 1]) {
+                words[s] = words[s + 1];
+                words[s + 1] = words[s];
+            }
+        }
    }
 }
