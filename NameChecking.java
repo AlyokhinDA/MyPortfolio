@@ -1,3 +1,5 @@
+import org.w3c.dom.ls.LSOutput;
+
 import java.util.Scanner;
 public class NameChecking {
     public static void main(String[] args) {
@@ -7,7 +9,11 @@ public class NameChecking {
         while (!isCorrectName) {
             String name = scanner.nextLine(); //Считывает строку из System.in
             isCorrectName = checkName(name);
-            if (!isCorrectName) System.out.println("Введите корректное имя!");
+            if (!isCorrectName) {
+                System.out.println("Введите корректное имя!");
+            } else {
+                System.out.println(formatName(name));
+            }
         }
     }
 
@@ -17,8 +23,6 @@ public class NameChecking {
             check = false;
         } else check = true;
 
-        System.out.println(formatName(name));
-
         return check;
     }
 
@@ -26,11 +30,12 @@ public class NameChecking {
         String[] fullName = name.trim().split(" ");
         String s = "";
 
+        sortByLength(fullName);
+
         for (int i = 0; i < fullName.length; i++) {
             fullName[i] = fullName[i].substring(0, 1).toUpperCase() + fullName[i].substring(1);
             s = fullName[0] + " " + fullName[1] + " " + fullName[2];
         }
-        sortByLength(fullName);
         return s;
     }
 
@@ -49,6 +54,5 @@ public class NameChecking {
                 }
             }
         }
-        System.out.println(words[0] + " " + words[1] + " " + words[2]);
     }
 }
