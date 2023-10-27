@@ -4,23 +4,32 @@ public class Tank {
     int fuel;
 
     public Tank(){
-        fuel = 100;
+        this(0, 0, 100);
     }
 
     public Tank(int x, int y) {
-        this.x = x;
-        this.y = y;
+        this(x, y, 100);
     }
 
     public Tank(int x, int y, int fuel) {
         this.x = x;
         this.y = y;
         this.fuel = fuel;
-
-        for (int i = fuel; i <= 0; i -= x, i -= y);
     }
 
     public void goForward(int i) {
+
+        if (i < 0 && -i > fuel) {
+            i = -fuel;
+            if (i <= fuel) {
+                i -= fuel;
+            } else {
+                i = fuel;
+            }
+        } else {
+            i = fuel;
+        }
+
         if (dir == 0) x += i;
         else if (dir == 1) y += i;
         else if (dir == 2) x -= i;
