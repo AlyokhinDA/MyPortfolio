@@ -19,15 +19,15 @@ public class Tank {
 
     public void goForward(int i) {
 
-        if (i < 0 && -i > fuel) {
-            i = -fuel;
-            if (i <= fuel) {
-                i -= fuel;
-            } else {
+        if (Math.abs(i) > fuel) {
+
+            if (i < 0 && -i > fuel) {
+                i = -fuel;
+            } else if (i > 0 && i > fuel) {
                 i = fuel;
             }
-        } else {
-            i = fuel;
+
+            fuel -= Math.abs(i);
         }
 
         if (dir == 0) x += i;
