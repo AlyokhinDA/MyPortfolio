@@ -1,7 +1,8 @@
 public class Tank {
-    int x, y;
-    int dir;
-    int fuel;
+    private int x, y;
+    private int dir;
+    private int fuel;
+    final String modelName = "T34";
 
     public Tank(){
         this(0, 0, 100);
@@ -20,15 +21,13 @@ public class Tank {
     public void goForward(int i) {
 
         if (Math.abs(i) > fuel) {
-
-            if (i < 0 && -i > fuel) {
+            if (i < 0) {
                 i = -fuel;
-            } else if (i > 0 && i > fuel) {
+            } else {
                 i = fuel;
             }
-
-            fuel -= Math.abs(i);
         }
+        fuel -= Math.abs(i);
 
         if (dir == 0) x += i;
         else if (dir == 1) y += i;
@@ -37,7 +36,11 @@ public class Tank {
     }
 
     public void printPosition() {
-        System.out.println("The Tank is at " + x +", " + y + " now.");
+        int counter = 0;
+        if (true) {
+            counter++;
+        }
+        System.out.println("The Tank " + modelName + "-" + counter + " is at " + x +", " + y + " now.");
     }
 
     public void turnLeft() {
@@ -52,5 +55,29 @@ public class Tank {
 
     public void goBackward(int i) {
         goForward(-i);
+    }
+
+    public int getFuel() {
+        return fuel;
+    }
+
+    public void setFuel(int fuel) {
+        this.fuel = fuel;
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
     }
 }

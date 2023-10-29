@@ -6,6 +6,10 @@ with fuel and different constructors
 */
 
         // At (0;0) fuel=100
+        Tank tank = new Tank();
+        tank.setX(200);
+        tank.setY(100);
+        tank.printPosition();
         Tank justTank = new Tank();
         // At (10;10) fuel=100
         Tank anywareTank = new Tank(10, 10);
