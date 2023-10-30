@@ -35,7 +35,7 @@ public class Tank {
     }
 
     public void printPosition() {
-        System.out.printf("The Tank is at %d, %d now.\n", x, y);
+        System.out.println("The Tank is at " + x + ", " + y + " now.");
     }
 
     public void turnLeft() {
