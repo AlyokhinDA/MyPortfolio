@@ -36,11 +36,7 @@ public class Tank {
     }
 
     public void printPosition() {
-        int counter = 0;
-        if (true) {
-            counter++;
-        }
-        System.out.println("The Tank " + modelName + "-" + counter + " is at " + x +", " + y + " now.");
+        System.out.println("The Tank " + modelName + "-" + " is at " + x +", " + y + " now.");
     }
 
     public void turnLeft() {
