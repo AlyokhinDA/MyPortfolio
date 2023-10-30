@@ -2,8 +2,6 @@ public class Tank {
     private int x, y;
     private int dir;
     private int fuel;
-    final String modelName = "T34";
-    static int counter = 0;
 
     public Tank(){
         this(0, 0, 100);
@@ -37,7 +35,7 @@ public class Tank {
     }
 
     public void printPosition() {
-        System.out.printf("The Tank %s-%d is at %d, %d now.\n", modelName, counter, x, y);
+        System.out.printf("The Tank is at %d, %d now.\n", x, y);
     }
 
     public void turnLeft() {
