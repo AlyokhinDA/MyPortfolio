@@ -3,7 +3,7 @@ public class Tank {
     private int dir;
     private int fuel;
     final String modelName = "T34";
-    static int counter = 1;
+    static int counter;
 
     public Tank(){
         this(0, 0, 100);
@@ -16,7 +16,7 @@ public class Tank {
     public Tank(int x, int y, int fuel) {
         this.x = x;
         this.y = y;
-        this.fuel = fuel;
+        this.fuel = fuel;;
     }
 
     public void goForward(int i) {
@@ -37,12 +37,8 @@ public class Tank {
     }
 
     public void printPosition() {
-        int number = 1;
-        if (counter <= 3) {
-            number = counter;
-            counter++;
-        }
-        System.out.printf("The Tank %s-%d is at %d, %d now.\n", modelName, number, x, y);
+        counter++;
+        System.out.printf("The Tank %s-%d is at %d, %d now.\n", modelName, counter, x, y);
     }
 
     public void turnLeft() {
