@@ -16,7 +16,8 @@ public class Tank {
     public Tank(int x, int y, int fuel) {
         this.x = x;
         this.y = y;
-        this.fuel = fuel;;
+        this.fuel = fuel;
+        counter++;
     }
 
     public void goForward(int i) {
@@ -37,7 +38,6 @@ public class Tank {
     }
 
     public void printPosition() {
-        counter++;
         System.out.printf("The Tank %s-%d is at %d, %d now.\n", modelName, counter, x, y);
     }
 
